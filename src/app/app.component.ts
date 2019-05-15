@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CityListService} from "./service/city-list.service";
-import {City, CityWeather} from "./weather.interface";
+import {City, CityWeather, FormConfig} from "./weather.interface";
 import {WeatherService} from "./service/weather.service";
 import {CompareWeatherService} from "./service/compare-weather.service";
 
@@ -28,12 +28,11 @@ export class AppComponent implements OnInit {
       });
   }
 
-  onGetWeather(selectedIds: number[]): void {
-    this.weatherService.getWeatherByCityIds(selectedIds)
+  onGetWeather(formConfig: FormConfig): void {
+    this.weatherService.getWeatherByCityIds(formConfig.citiesIds)
       .subscribe(citiesWeatherData => {
-        console.log('citiesWeatherData', citiesWeatherData);
         this.citiesWeather = this.compareWeatherService
-          .sortWeatherList(citiesWeatherData);
+          .sortWeatherList(citiesWeatherData, formConfig.gender);
       });
   }
 }

@@ -27,3 +27,13 @@ export interface WeatherMain {
   temp_max: number,
   temp_min: number,
 }
+
+export interface FormConfig {
+  citiesIds: number[],
+  gender: Gender,
+}
+
+export enum Gender {
+  male = 'Male',
+  female = 'Female',
+}

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {CitiesCheckList, City} from "../weather.interface";
+import {CitiesCheckList, City, FormConfig, Gender} from "../weather.interface";
 
 const INIT_SELECTION_MAP = [2759794, 281184, 2643743, 6455259, 293397, 1850147];
 
@@ -11,11 +11,11 @@ const INIT_SELECTION_MAP = [2759794, 281184, 2643743, 6455259, 293397, 1850147];
 export class CityFormComponent implements OnInit {
 
   @Input() cities: City[];
-  @Output() getWeather: EventEmitter<number[]> = new EventEmitter<number[]>();
+  @Output() getWeather: EventEmitter<FormConfig> = new EventEmitter<FormConfig>();
 
   citiesCheckList: CitiesCheckList[] = [];
-  genderOptions: string[] = ['Male', 'Female'];
-  gender: string = 'male';
+  genderOptions: Gender[] = [Gender.male, Gender.female];
+  gender: Gender = Gender.male;
 
   constructor() {
   }
@@ -37,8 +37,14 @@ export class CityFormComponent implements OnInit {
       });
   }
 
-  getList(): number[] {
-    console.log('model', this.gender);
+  onGetWeatherClick(): void {
+    this.getWeather.emit({
+      citiesIds: this.getSelectedCitiesIds(),
+      gender: this.gender,
+    })
+  }
+
+  private getSelectedCitiesIds(): number[] {
     const checked = this.citiesCheckList.filter(item => item.checked);
     return checked.map(city => city.id);
   }
