@@ -1,11 +1,15 @@
+<h1>The best weather on earth</h1>
+
 <app-city-form *ngIf="cities"
                [cities]="cities"
                (getWeather)="onGetWeather($event)">
 </app-city-form>
 
-<!--weather"-->
-<app-city-weather *ngFor="let weather of citiesWeather; let i = index"
-                  [cityWeather]="weather"
-                  [index]="i">
-</app-city-weather>
-
+<div *ngIf="citiesWeather"
+     class="cities-weather-summary">
+    <h2>Cities with the best weather</h2>
+    <app-city-weather *ngFor="let weather of citiesWeather; let i = index"
+                      [cityWeather]="weather"
+                      [index]="i">
+    </app-city-weather>
+</div>
