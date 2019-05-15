@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {forkJoin, Observable, of} from "rxjs";
 import {API_KEY} from "../weather.const";
-import {switchMap} from "rxjs/operators";
+import {switchMap, take} from "rxjs/operators";
 import {CityWeather} from "../weather.interface";
 
 const MAX_REQUEST_IDS = 20;
@@ -25,6 +25,7 @@ export class WeatherService {
 
     return forkJoin(requests)
       .pipe(
+        take(1),
         switchMap(data => {
           const citiesWeatherLists = data.map(d => d.list);
           this.citiesWeatherRaw = [].concat(...citiesWeatherLists);
