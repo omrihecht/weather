@@ -14,6 +14,8 @@ export class CityFormComponent implements OnInit {
   @Output() getWeather: EventEmitter<number[]> = new EventEmitter<number[]>();
 
   citiesCheckList: CitiesCheckList[] = [];
+  genderOptions: string[] = ['Male', 'Female'];
+  gender: string = 'male';
 
   constructor() {
   }
@@ -36,6 +38,7 @@ export class CityFormComponent implements OnInit {
   }
 
   getList(): number[] {
+    console.log('model', this.gender);
     const checked = this.citiesCheckList.filter(item => item.checked);
     return checked.map(city => city.id);
   }

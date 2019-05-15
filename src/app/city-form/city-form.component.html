@@ -1,4 +1,4 @@
-<h2>Select cities</h2>
+<h3>Select cities</h3>
 <div class="city-select">
     <div *ngFor="let city of citiesCheckList"
          class="city">
@@ -7,7 +7,16 @@
     </div>
 </div>
 
-
+<h3>Select Gender</h3>
+<div class="gender-select">
+    <label *ngFor="let genderOption of genderOptions">
+        <input type="radio"
+               name="options"
+               (click)="gender = genderOption"
+               [checked]="genderOption === gender">
+        <span>{{genderOption}}</span>
+    </label>
+</div>
 
 <button (click)="getWeather.emit(getList())">
     get Weather
