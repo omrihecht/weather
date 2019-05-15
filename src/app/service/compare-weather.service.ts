@@ -5,7 +5,7 @@ const IDEAL_TEMP_MALE: number = 21;
 const IDEAL_TEMP_FEMALE: number = 22;
 const IDEAL_HUMID: number = 50;
 
-const TEMP_MULTIPLIER: number = 2;
+const TEMP_MULTIPLIER: number = 3;
 
 @Injectable()
 export class CompareWeatherService {
