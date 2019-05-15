@@ -1,7 +1,7 @@
 # The best weather on earth
 
 ## Flow
-- Requests local city list JSON (downloaded from OpenWeatherMap) and maps the json data (containing citiId) to a predefined list of cities. the list generates the form
+- Requests local city list JSON (downloaded from OpenWeatherMap) and maps the json data (containing cityId) to a predefined list of cities. the list generates the form
 ![image](https://user-images.githubusercontent.com/24462119/57803415-07ecc000-7761-11e9-807a-da0d8d1b2db9.png)
 - Form emits object containing array of city ids, and gender
 - Request is sent to the OpenWeatherMap API with array of city ids
