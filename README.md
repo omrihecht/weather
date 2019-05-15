@@ -6,7 +6,7 @@
 - Form emits object containing array of city ids, and gender
 - Request is sent to the OpenWeatherMap API with array of city ids
 - On request return, cities are ordered by algorythm that defines the best weather, this data generates the city list
- ![image](https://user-images.githubusercontent.com/24462119/57803839-0079e680-7762-11e9-80a7-4a16dc1c7c6e.png)
+![image](https://user-images.githubusercontent.com/24462119/57805178-1341ea80-7765-11e9-9702-a8a5b320c1a4.png)
 
 ## Services
 **CityListService**
@@ -19,4 +19,4 @@
 
 **CompareWeatherService**
 - responsible to sort the cities based on their weather data.
-- uses an algorythm that takes into account the temprature and humidity. temprature is a stronger factor on the ordering, I assume that change in 1 degree of tempreture is more significant the a change of 1 % humidity. tempreture multiplier is 2.
+- uses an algorythm that takes into account the temperature and humidity. temperature is a stronger factor on the ordering, I assume that change in 1 degree of temperature is more significant the a change of 1 % humidity. temperature multiplier is 3.
