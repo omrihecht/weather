@@ -1,0 +1,11 @@
+<app-city-form *ngIf="cities"
+               [cities]="cities"
+               (getWeather)="onGetWeather($event)">
+</app-city-form>
+
+<!--weather"-->
+<app-city-weather *ngFor="let weather of citiesWeather; let i = index"
+                  [cityWeather]="weather"
+                  [index]="i">
+</app-city-weather>
+

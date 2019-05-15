@@ -1,0 +1,16 @@
+<div class="weather-summary">
+    <div class="city">
+        <span class="index">{{index + 1}}.</span>
+        {{cityWeather.name}}, {{cityWeather.country}}
+    </div>
+    <div class="details">
+        temp: {{cityWeather.main.temp}} &#8451;, humidity: {{cityWeather.main.humidity}}%
+    </div>
+    <div class="description-wrapper">
+        <div *ngFor="let weather of cityWeather.weather"
+             class="description">
+            <span>{{weather.description}}</span>
+            <img src="{{getDescriptionIcon(weather.icon)}}"/>
+        </div>
+    </div>
+</div>

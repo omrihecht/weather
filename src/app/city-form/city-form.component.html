@@ -1,0 +1,12 @@
+<h2>select cities</h2>
+<div class="city-select">
+    <div *ngFor="let city of citiesCheckList"
+         class="city">
+        <input type="checkbox" [(ngModel)]="city.checked">
+        <span class="name">{{city.name}}, {{city.country}}</span>
+    </div>
+</div>
+
+<button (click)="getWeather.emit(getList())">
+    get Weather
+</button>
