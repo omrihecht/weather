@@ -8,8 +8,10 @@
 <div *ngIf="citiesWeather"
      class="cities-weather-summary">
     <h2>Cities with the best weather</h2>
-    <app-city-weather *ngFor="let weather of citiesWeather; let i = index"
-                      [cityWeather]="weather"
-                      [index]="i">
-    </app-city-weather>
+    <div class="list-wrapper">
+        <app-city-weather *ngFor="let weather of citiesWeather; let i = index"
+                          [cityWeather]="weather"
+                          [index]="i">
+        </app-city-weather>
+    </div>
 </div>
